@@ -14,7 +14,7 @@ const getSaleList = catchAsync(async (req, res) => {
 
 const deleteItem = catchAsync(async (req, res) => {
     console.log(req.body.item.tokenId)
-    // await ItemListModel.deleteOne({tokenId: req.body.item.tokenId});
+    await ItemListModel.deleteOne({tokenId: req.body.item.tokenId});
     const saleListModel = new SaleListModel(req.body.item);
     await saleListModel.save();
     res.status(httpStatus.OK).send({});
